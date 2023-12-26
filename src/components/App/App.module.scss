@@ -1,0 +1,16 @@
+.page {
+  font-family: 'Source Sans 3', sans-serif;
+
+  // font-family: 'Open Sans', sans-serif;
+
+  &__logo {
+    display: block;
+    margin: 40px auto;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
