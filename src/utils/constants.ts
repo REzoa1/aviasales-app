@@ -1,4 +1,4 @@
-const CHECKBOXES = [
+const TRANSFERS_INITIAL = [
   { id: 'All', name: 'Все' },
   { id: 'zero_transefers', name: 'Без пересадок' },
   { id: 'one_transefer', name: '1 пересадка' },
@@ -111,4 +111,4 @@ const TICKETS = [
   },
 ]
 
-export { CHECKBOXES, TABS, TICKETS }
+export { TRANSFERS_INITIAL, TABS, TICKETS }

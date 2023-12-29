@@ -1,12 +1,15 @@
 import React from 'react'
 
 import CheckBox from '../CheckBox/CheckBox'
-import { CHECKBOXES } from '../../utils/constants'
+import { selectData } from '../../store/slices/filter'
+import { useAppSelector } from '../../store'
 
 import s from './SideBar.module.scss'
 
 function SideBar() {
-  const elements = CHECKBOXES.map(({ id, name }) => <CheckBox key={id} id={id} name={name} />)
+  const { transfers } = useAppSelector(selectData)
+
+  const elements = transfers.map(({ id, name, checked }) => <CheckBox key={id} id={id} name={name} checked={checked} />)
 
   return (
     <div className={s.sidebar}>

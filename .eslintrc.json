@@ -53,6 +53,13 @@
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
         "newlines-between": "always"
       }
+    ],
+    "no-param-reassign": [
+      "error",
+      {
+        "props": true,
+        "ignorePropertyModificationsFor": ["state"]
+      }
     ]
   },
   "settings": {
