@@ -44,11 +44,7 @@ function MainBlock() {
     setTicketsCount((prev) => prev + 5)
   }
 
-  const loadOrErrorAlert = !tickets.length ? (
-    <Alert type="loading" message="Билеты загружаются" />
-  ) : (
-    <Alert type="error" message="Рейсов, подходящих под заданные фильтры, не найдено" />
-  )
+  const loadOrErrorAlert = <Alert type={!tickets.length ? 'loading' : 'error'} />
 
   const mainContent = (
     <>

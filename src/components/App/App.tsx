@@ -1,23 +1,15 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import SideBar from '../SideBar/SideBar'
 import MainBlock from '../MainBlock/MainBlock'
 import ProgressBar from '../ProgressBar/ProgressBar'
-import { ReactComponent as AppLogo } from '../../img/Logo.svg'
-import { getTicketsPart, selectTickets } from '../../store/slices/tickets'
-import { useAppDispatch, useAppSelector } from '../../store'
+import { ReactComponent as AppLogo } from '../../assets/img/Logo.svg'
+import useDispatchTickets from '../../utils/useDispatchTickets'
 
 import s from './App.module.scss'
 
 function App() {
-  const dispatch = useAppDispatch()
-  const { progress, stop, tickets } = useAppSelector(selectTickets)
-
-  useEffect(() => {
-    if (!stop) {
-      dispatch(getTicketsPart())
-    }
-  }, [dispatch, stop, tickets])
+  const { stop, progress } = useDispatchTickets()
 
   return (
     <div className={s.page}>
