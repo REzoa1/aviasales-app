@@ -1,16 +1,28 @@
+@import './../../scss/variables.scss';
+
 .page {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Source Sans 3', 'Open Sans', sans-serif;
 
   // font-family: 'Open Sans', sans-serif;
 
   &__logo {
     display: block;
     margin: 40px auto;
+    // margin-top: 40px;
+
+    @media (max-width: $screen-md) {
+      margin: 20px auto;
+    }
   }
 
   &__wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    @media (max-width: $screen-md) {
+      flex-direction: column;
+      padding: 0 20px;
+    }
   }
 }

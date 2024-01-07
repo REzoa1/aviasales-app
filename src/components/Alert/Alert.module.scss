@@ -1,0 +1,18 @@
+.alert {
+  color: #4a4a4a;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 0;
+    margin-top: 10px;
+  }
+
+  &__subtitle {
+    width: 235px;
+    margin: auto;
+  }
+
+  &__img {
+    margin-bottom: 40px;
+  }
+}

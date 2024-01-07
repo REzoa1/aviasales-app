@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 
-import filterReducer from './slices/filter'
+import ticketsReducer from './slices/tickets'
 
 export const store = configureStore({
   reducer: {
-    filter: filterReducer,
+    ticketsState: ticketsReducer,
   },
 })
 

@@ -1,8 +1,11 @@
+@import './../../scss/variables.scss';
+
 /* Style the tab */
 .tabs {
   display: flex;
   justify-content: space-around;
-  width: 500px;
+  // max-width: 500px;
+  width: 100%;
 
   //   overflow: hidden;
   // border: 1px solid #DFE5EC;
@@ -18,8 +21,9 @@
 
     border: 1px solid #dfe5ec;
     text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 12px;
+    font-family: 'Source Sans 3', sans-serif;
+    // font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
     font-weight: 600;
     text-transform: uppercase;
 
@@ -27,6 +31,14 @@
     cursor: pointer;
     padding: 14px 16px;
     transition: 0.1s;
+
+    @media (max-width: 360px) {
+      padding: 4px 6px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
 
     &:not(:last-child) {
       border-right: 0;
@@ -52,73 +64,11 @@
   }
 }
 
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
+.container {
+  width: 500px;
 
-.tickets {
-  &__item {
-    margin-top: 20px;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 2px 8px #0000001a;
-
-    & > *:not(:last-child) {
-      padding-bottom: 20px;
-    }
-  }
-
-  &__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  @media (max-width: $screen-md) {
     width: 100%;
-  }
-
-  &__header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__title {
-    color: #2196f3;
-    font-family: 'Open Sans';
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0;
-  }
-
-  &__logo {
-    width: 110px;
-  }
-
-  &__body {
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  &__subtitle {
-    color: #a0b0b9;
-    text-transform: uppercase;
-  }
-
-  &__wrap {
-    max-width: 140px;
-    min-width: 100px;
-    // width: 140px;
-  }
-
-  &__time {
-    color: #4a4a4a;
-
-    font-family: 'Open Sans';
-    font-weight: 600;
   }
 }
 
@@ -132,8 +82,9 @@
   border-radius: 5px;
 
   color: #fff;
-  font-family: 'Open Sans';
-  font-size: 12px;
+  font-family: 'Source Sans 3', sans-serif;
+  // font-family: 'Open Sans';
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
 }
