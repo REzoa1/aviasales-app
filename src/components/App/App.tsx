@@ -4,7 +4,7 @@ import SideBar from '../SideBar/SideBar'
 import MainBlock from '../MainBlock/MainBlock'
 import ProgressBar from '../ProgressBar/ProgressBar'
 import { ReactComponent as AppLogo } from '../../assets/img/Logo.svg'
-import useDispatchTickets from '../../utils/useDispatchTickets'
+import { useDispatchTickets } from '../../hooks'
 
 import s from './App.module.scss'
 

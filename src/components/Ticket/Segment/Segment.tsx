@@ -2,9 +2,9 @@ import React from 'react'
 import { addMinutes, format } from 'date-fns'
 
 import { SegmentType } from '../../../types'
-import s from '../Ticket.module.scss'
 import { getNoun } from '../../../utils/helpers'
 import Inner from '../Inner/Inner'
+import s from '../Ticket.module.scss'
 
 function Segment({ origin, destination, date, duration, stops }: SegmentType) {
   const sampleDate = new Date(date)

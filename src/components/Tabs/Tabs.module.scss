@@ -1,0 +1,62 @@
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+
+  background-color: #ffffff;
+  border-radius: 5px;
+
+  &__item {
+    width: 100%;
+    text-align: center;
+    border: 0;
+
+    color: #4a4a4a;
+
+    border: 1px solid #dfe5ec;
+    text-align: center;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    background-color: inherit;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.1s;
+
+    @media (max-width: 360px) {
+      padding: 4px 6px;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:not(:last-child) {
+      border-right: 0;
+    }
+
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &:last-child {
+      border-radius: 0 5px 5px 0;
+    }
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+
+    &--active {
+      border-color: #2196f3;
+      color: #fff;
+      background-color: #2196f3;
+
+      &:hover {
+        background-color: #2196f3;
+      }
+    }
+  }
+}

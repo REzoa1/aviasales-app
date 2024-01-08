@@ -30,7 +30,6 @@
 
   &__price {
     color: #2196f3;
-    // font-family: 'Open Sans';
     font-size: 25px;
     font-weight: 600;
     margin: 0;
@@ -47,9 +46,7 @@
   }
 
   &__inner {
-    // max-width: 140px;
     width: 110px;
-    // min-width: 100px;
     margin: auto 0;
   }
 
@@ -60,8 +57,6 @@
 
   &__subtitle {
     color: #4a4a4a;
-
-    // font-family: 'Open Sans';
     font-weight: 600;
   }
 }

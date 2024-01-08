@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useAppDispatch } from '../../store'
-import { filterTickets } from '../../store/slices/tickets'
+import { filterTickets } from '../../store/slices/filter'
 
 import s from './CheckBox.module.scss'
 

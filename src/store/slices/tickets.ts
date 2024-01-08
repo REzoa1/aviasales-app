@@ -1,9 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-import { TicketType, FilterType } from '../../types'
-import { FILTERS_INITIAL } from '../../utils/constants'
+import { TicketType } from '../../types'
 import { fetchSearchId, fetchTickets } from '../../utils/fetch-helpers'
-import { updateFilters } from '../../utils/helpers'
 
 type StateType = {
   ticketsState: TicketsStateType
@@ -15,9 +13,7 @@ type TicketsStateType = {
 
   progress: number
   stop: boolean
-
-  filters: FilterType[]
-  tabName: string
+  status: 'idle' | 'loading' | 'failed' | 'success'
 }
 
 const initialState: TicketsStateType = {
@@ -26,9 +22,7 @@ const initialState: TicketsStateType = {
 
   progress: 0,
   stop: false,
-
-  filters: FILTERS_INITIAL,
-  tabName: 'Оптимальный',
+  status: 'idle',
 }
 
 export const getSearchId = createAsyncThunk('tickets/getSearchId', async () => {
@@ -49,32 +43,26 @@ export const getTicketsPart = createAsyncThunk('tickets/getTicketsPart', async (
 export const ticketsSlice = createSlice({
   name: 'tickets',
   initialState,
-  reducers: {
-    filterTickets: (state, action) => {
-      const filterName = action.payload
-      const newFilters = updateFilters(state.filters, filterName)
-
-      state.filters = newFilters
-    },
-
-    sortTickets: (state, action) => {
-      const tabName = action.payload
-      state.tabName = tabName
-    },
-  },
+  reducers: {},
 
   extraReducers: (builder) => {
     builder.addCase(getTicketsPart.pending, (state) => {
+      state.status = 'loading'
+
       const progress = Math.floor((state.tickets.length / 7229) * 100)
       state.progress = progress
     })
     builder.addCase(getTicketsPart.fulfilled, (state, action) => {
-      const { tickets, stop } = action.payload
+      state.status = 'success'
 
+      const { tickets, stop } = action.payload
       if (tickets) {
         state.tickets = [...state.tickets, ...tickets]
         state.stop = stop
       }
+    })
+    builder.addCase(getTicketsPart.rejected, (state) => {
+      state.status = 'failed'
     })
 
     builder.addCase(getSearchId.fulfilled, (state, action) => {
@@ -82,8 +70,6 @@ export const ticketsSlice = createSlice({
     })
   },
 })
-
-export const { filterTickets, sortTickets } = ticketsSlice.actions
 
 export const selectTickets = (state: StateType) => state.ticketsState
 export default ticketsSlice.reducer
